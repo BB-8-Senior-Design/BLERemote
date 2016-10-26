@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_up.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_up.xml"
+    },
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_bluetooth_search.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_bluetooth_search.xml"
+    },
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_left.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_left.xml"
+    },
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_rot_left.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_rot_left.xml"
+    },
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_down.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_down.xml"
+    },
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_rot_right.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_rot_right.xml"
+    },
+    {
+        "merged": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_right.xml",
+        "source": "C:\\cygwin64\\home\\Chris\\BB-8-Senior-Design\\BB8-BLE-Remote\\Application\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_right.xml"
+    }
+]
