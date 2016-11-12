@@ -16,9 +16,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_rot_left"
         android:background="@android:color/holo_orange_dark"
-        android:layout_marginTop="45dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ImageButton2"
         android:layout_toEndOf="@+id/ImageButton2" />
 
     <ImageButton
@@ -28,7 +26,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_up"
         android:background="@android:color/white"
-        android:layout_alignTop="@+id/ImageButton"
+        android:layout_above="@+id/ImageButton5"
         android:layout_centerHorizontal="true" />
 
     <ImageButton
@@ -38,8 +36,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_rot_right"
         android:background="@android:color/holo_orange_dark"
-        android:layout_alignTop="@+id/ImageButton2"
-        android:layout_toLeftOf="@+id/ImageButton2"
+        android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/ImageButton2" />
 
     <ImageButton
@@ -90,24 +87,180 @@
         android:layout_height="wrap_content"
         android:text="Device"
         android:id="@+id/device_address"
-        android:layout_above="@+id/ImageButton2"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:id="@+id/button"
-        android:layout_below="@+id/ImageButton4"
-        android:layout_toStartOf="@+id/ImageButton4" />
+        android:layout_below="@+id/hsv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2"
         android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/ImageButton6" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:id="@+id/button"
+        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+    <HorizontalScrollView
+        android:id="@+id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fillViewport="false"
+        android:measureAllChildren="false"
+        android:scrollbars="none"
+        android:layout_below="@+id/ImageButton4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp">
+
+        <LinearLayout
+            android:id="@+id/innerLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/Sound1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+            <ImageButton
+                android:id="@+id/Astro1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_music_note"
+                android:background="@android:color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Sound2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:id="@+id/Astro2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/holo_green_light"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/yespe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/holo_blue_bright"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/yesm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/holo_orange_dark"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+
 
 
 </RelativeLayout>
