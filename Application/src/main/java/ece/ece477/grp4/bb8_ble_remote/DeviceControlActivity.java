@@ -186,8 +186,16 @@ public class DeviceControlActivity extends Activity {
         ImageButton goRight = (ImageButton) findViewById(R.id.ImageButton5);
         ImageButton goForward = (ImageButton) findViewById(R.id.ImageButton2);
         ImageButton goBackward = (ImageButton) findViewById(R.id.ImageButton4);
-        Button sound1 = (Button) findViewById(R.id.button);
-        Button sound2 = (Button) findViewById(R.id.button2);
+
+        ImageButton sound1 = (ImageButton) findViewById(R.id.Astro1);
+        ImageButton sound2 = (ImageButton) findViewById(R.id.Astro2);
+        ImageButton sound3 = (ImageButton) findViewById(R.id.Astro3);
+        ImageButton sound4 = (ImageButton) findViewById(R.id.Astro4);
+        ImageButton sound5 = (ImageButton) findViewById(R.id.Astro5);
+        ImageButton sound6 = (ImageButton) findViewById(R.id.Astro6);
+        ImageButton sound7 = (ImageButton) findViewById(R.id.Astro7);
+        ImageButton sound8 = (ImageButton) findViewById(R.id.Astro8);
+
         directionMessage= (TextView) findViewById(R.id.textView);
 
 
@@ -273,6 +281,7 @@ public class DeviceControlActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     mBluetoothLeService.writeCustomCharacteristic(0, 0x01);
+                    directionMessage.setText("Sound 1");
                 }
                 return true;
             }
@@ -283,10 +292,80 @@ public class DeviceControlActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     mBluetoothLeService.writeCustomCharacteristic(0, 0x02);
+                    directionMessage.setText("Sound 2");
                 }
                 return true;
             }
         });
+
+
+        sound3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    mBluetoothLeService.writeCustomCharacteristic(0, 0x03);
+                    directionMessage.setText("Sound 3");
+                }
+                return true;
+            }
+        });
+
+        sound4.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    mBluetoothLeService.writeCustomCharacteristic(0, 0x04);
+                    directionMessage.setText("Sound 4");
+                }
+                return true;
+            }
+        });
+
+        sound5.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    mBluetoothLeService.writeCustomCharacteristic(0, 0x05);
+                    directionMessage.setText("Sound 5");
+                }
+                return true;
+            }
+        });
+
+        sound6.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    mBluetoothLeService.writeCustomCharacteristic(0, 0x06);
+                    directionMessage.setText("Sound 6");
+                }
+                return true;
+            }
+        });
+
+
+        sound7.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    mBluetoothLeService.writeCustomCharacteristic(0, 0x07);
+                    directionMessage.setText("Sound 7");
+                }
+                return true;
+            }
+        });
+
+        sound8.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    mBluetoothLeService.writeCustomCharacteristic(0, 0x08);
+                    directionMessage.setText("Sound 8");
+                }
+                return true;
+            }
+        });
+
 
     }
 

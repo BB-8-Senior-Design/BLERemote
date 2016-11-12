@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/layout"
     tools:context="ece.ece477.grp4.bb8_ble_remote.BluetoothLeService">
 
     <ImageButton
@@ -87,25 +88,30 @@
         android:layout_height="wrap_content"
         android:text="Device"
         android:id="@+id/device_address"
-        android:layout_below="@+id/hsv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:id="@+id/button2"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/ImageButton6" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:id="@+id/button"
-        android:layout_below="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/batImage"
+        android:src="@drawable/ic_battery"
+        android:background="@android:color/holo_green_dark"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/ImageButton4" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100%"
+        android:id="@+id/batText"
+        android:background="@android:color/holo_green_dark"
+        android:layout_alignTop="@+id/batImage"
+        android:layout_toEndOf="@+id/batImage"
+        android:gravity="center"
+        android:textColor="@android:color/white"/>
 
     <HorizontalScrollView
         android:id="@+id/hsv"
@@ -114,9 +120,9 @@
         android:fillViewport="false"
         android:measureAllChildren="false"
         android:scrollbars="none"
+        android:layout_marginTop="38dp"
         android:layout_below="@+id/ImageButton4"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp">
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:id="@+id/innerLay"
@@ -126,7 +132,6 @@
             android:orientation="horizontal" >
 
             <LinearLayout
-                android:id="@+id/Sound1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -143,7 +148,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Sound2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -154,66 +158,34 @@
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_music_note"
-                    android:background="@android:color/holo_green_light"
+                    android:background="@android:color/darker_gray"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="7dp" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical" >
                 <ImageButton
+                    android:id="@+id/Astro3"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_music_note"
-                    android:background="@android:color/white"
+                    android:background="@android:color/holo_orange_dark"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="7dp"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/yes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical" >
                 <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_music_note"
-                    android:background="@android:color/holo_red_dark"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="7dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/nope"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical" >
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_music_note"
-                    android:background="@android:color/white"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="7dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/yespe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical" >
-                <ImageButton
+                    android:id="@+id/Astro4"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
@@ -224,28 +196,28 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/nop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical" >
                 <ImageButton
+                    android:id="@+id/Astro5"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_music_note"
-                    android:background="@android:color/holo_blue_bright"
+                    android:background="@android:color/darker_gray"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="7dp"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/yesm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical" >
                 <ImageButton
+                    android:id="@+id/Astro6"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
@@ -255,12 +227,40 @@
                     android:layout_marginLeft="7dp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:id="@+id/Astro7"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <ImageButton
+                    android:id="@+id/Astro8"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_music_note"
+                    android:background="@android:color/darker_gray"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="7dp" />
+            </LinearLayout>
+
         </LinearLayout>
     </HorizontalScrollView>
-
-
-
-
 
 
 </RelativeLayout>
