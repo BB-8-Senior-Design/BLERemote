@@ -333,8 +333,11 @@ public class BluetoothLeService extends Service {
         if (service == 0) {
             //audio
             mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString("c7acedee-a61c-4e2a-8934-94546b23d3d5"));
-        } else {
+        } else if (service == 1) {
+            // servo
             mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString("ac2ee37f-2da1-4796-a3f8-b4103ca72855"));
+        } else {
+            mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString("0dc296a2-b565-4912-8ab8-f27dad60f2f9"));
         }
         mWriteCharacteristic.setValue(value,android.bluetooth.BluetoothGattCharacteristic.FORMAT_UINT8,0);
         if(mBluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){

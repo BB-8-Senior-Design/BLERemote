@@ -217,7 +217,7 @@ public class DeviceControlActivity extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("CCW");
+                    directionMessage.setText("CW");
                     mBluetoothLeService.writeCustomCharacteristic(1, 0x02);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");
@@ -256,8 +256,10 @@ public class DeviceControlActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     directionMessage.setText("Going Forward");
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x01);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");;
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
                 }
                 return true;
             }
@@ -269,8 +271,10 @@ public class DeviceControlActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     directionMessage.setText("Going Backward");
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x02);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");;
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
                 }
                 return true;
             }
