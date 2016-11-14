@@ -15,7 +15,7 @@
         android:layout_height="100dp"
         android:id="@+id/ImageButton"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_rot_left"
+        android:src="@drawable/ic_rot_right"
         android:background="@android:color/holo_orange_dark"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/ImageButton2" />
@@ -35,7 +35,7 @@
         android:layout_height="100dp"
         android:id="@+id/ImageButton3"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_rot_right"
+        android:src="@drawable/ic_rot_left"
         android:background="@android:color/holo_orange_dark"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/ImageButton2" />

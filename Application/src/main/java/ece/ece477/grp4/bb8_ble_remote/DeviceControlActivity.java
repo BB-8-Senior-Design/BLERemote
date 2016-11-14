@@ -179,6 +179,8 @@ public class DeviceControlActivity extends Activity {
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
+        // enable the notify on things
+
 
         ImageButton rotateLeft = (ImageButton) findViewById(R.id.ImageButton);
         ImageButton rotateRight = (ImageButton) findViewById(R.id.ImageButton3);
@@ -203,8 +205,8 @@ public class DeviceControlActivity extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("CCW");
-                    mBluetoothLeService.writeCustomCharacteristic(1, 0x01);
+                    directionMessage.setText("CW");
+                    mBluetoothLeService.writeCustomCharacteristic(1, 0x02);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");
                     mBluetoothLeService.writeCustomCharacteristic(1, 0x00);
@@ -217,8 +219,8 @@ public class DeviceControlActivity extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("CW");
-                    mBluetoothLeService.writeCustomCharacteristic(1, 0x02);
+                    directionMessage.setText("CCW");
+                    mBluetoothLeService.writeCustomCharacteristic(1, 0x01);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");
                     mBluetoothLeService.writeCustomCharacteristic(1, 0x00);
@@ -232,8 +234,10 @@ public class DeviceControlActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     directionMessage.setText("Turning Right");
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x03);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");;
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
                 }
                 return true;
             }
@@ -244,8 +248,10 @@ public class DeviceControlActivity extends Activity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     directionMessage.setText("Turning Left");
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x04);
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     directionMessage.setText("Done!");;
+                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
                 }
                 return true;
             }
