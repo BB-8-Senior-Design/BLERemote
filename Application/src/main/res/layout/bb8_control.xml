@@ -97,7 +97,7 @@
         android:layout_height="50dp"
         android:id="@+id/batImage"
         android:src="@drawable/ic_battery"
-        android:background="@android:color/holo_green_dark"
+        android:background="@android:color/black"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/ImageButton4" />
 
@@ -107,7 +107,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="100%"
         android:id="@+id/batText"
-        android:background="@android:color/holo_green_dark"
+        android:background="@android:color/black"
         android:layout_alignTop="@+id/batImage"
         android:layout_toEndOf="@+id/batImage"
         android:gravity="center"

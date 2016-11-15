@@ -16,6 +16,7 @@
 
 package ece.ece477.grp4.bb8_ble_remote;
 
+import android.animation.ArgbEvaluator;
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
@@ -25,6 +26,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -35,6 +37,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
@@ -58,6 +61,7 @@ public class DeviceControlActivity extends Activity {
     private TextView mConnectionState;
     private TextView mDataField;
     private TextView batteryLevelText;
+    private ImageView batteryLevelIcon;
     private String mDeviceName;
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
@@ -192,6 +196,7 @@ public class DeviceControlActivity extends Activity {
         mConnectionState = (TextView) findViewById(R.id.connection_state);*/
         //mDataField = (TextView) findViewById(R.id.data_value);
         batteryLevelText = (TextView) findViewById(R.id.batText);
+        batteryLevelIcon = (ImageView) findViewById(R.id.batImage);
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
@@ -459,6 +464,24 @@ public class DeviceControlActivity extends Activity {
         if (data != null) {
             //mDataField.setText(data);
             batteryLevelText.setText(data);
+            // do we want to turn this string into a percentage? because that would make me saaaaaaaaaaaad
+            // oh well
+            if (data.contains("%")) {
+                int batteryPercentage = Integer.parseInt(data.replaceAll("%", ""));
+                int colorToSet = Color.rgb(0,0,0);
+                ArgbEvaluator colorEvaluator = new ArgbEvaluator();
+                if (batteryPercentage >= 50) {
+                    // interpolate between green and yellow
+                    colorToSet = (int)colorEvaluator.evaluate((float)((batteryPercentage-50.0)/50.0), Color.rgb(255, 214, 0),Color.rgb(104,159,56));
+                } else {
+                    // interpolate between yellow and red
+                    colorToSet = (int)colorEvaluator.evaluate((float)((batteryPercentage-50.0)/50.0), Color.rgb(183,28,28),Color.rgb(255, 214, 0));
+
+                }
+                // do some sort of interpolation between green and red because values
+                batteryLevelIcon.setBackgroundColor(colorToSet);
+                batteryLevelText.setBackgroundColor(colorToSet);
+            }
         }
     }
 
