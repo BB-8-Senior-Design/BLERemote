@@ -57,6 +57,7 @@ public class DeviceControlActivity extends Activity {
 
     private TextView mConnectionState;
     private TextView mDataField;
+    private TextView batteryLevelText;
     private String mDeviceName;
     private String mDeviceAddress;
     private ExpandableListView mGattServicesList;
@@ -81,6 +82,7 @@ public class DeviceControlActivity extends Activity {
             }
             // Automatically connects to the device upon successful start-up initialization.
             mBluetoothLeService.connect(mDeviceAddress);
+
         }
 
         @Override
@@ -111,8 +113,24 @@ public class DeviceControlActivity extends Activity {
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 // Show all the supported services and characteristics on the user interface.
                 //displayGattServices(mBluetoothLeService.getSupportedGattServices());
+                // enable the notify on things
+                if (mBluetoothLeService != null) {
+                    mBluetoothLeService.notifyBattery();
+                    Log.w(TAG, "########## NOT RIP IN PEACE! ##########");
+                } else {
+                    Log.w(TAG, "#######Rip in peace###########");
+                }
+
+                List <BluetoothGattService> services = mBluetoothLeService.getSupportedGattServices();
+                Log.w(TAG, "SERVICES:");
+                for (BluetoothGattService fuck:services) {
+                    Log.w(TAG, fuck.toString());
+                    Log.w(TAG, fuck.getUuid().toString());
+                }
+
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+                Log.w(TAG, intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
         }
     };
@@ -173,14 +191,11 @@ public class DeviceControlActivity extends Activity {
         mGattServicesList.setOnChildClickListener(servicesListClickListner);
         mConnectionState = (TextView) findViewById(R.id.connection_state);*/
         //mDataField = (TextView) findViewById(R.id.data_value);
-
+        batteryLevelText = (TextView) findViewById(R.id.batText);
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
-
-        // enable the notify on things
-
 
         ImageButton rotateLeft = (ImageButton) findViewById(R.id.ImageButton);
         ImageButton rotateRight = (ImageButton) findViewById(R.id.ImageButton3);
@@ -443,6 +458,7 @@ public class DeviceControlActivity extends Activity {
     private void displayData(String data) {
         if (data != null) {
             //mDataField.setText(data);
+            batteryLevelText.setText(data);
         }
     }
 
