@@ -204,10 +204,8 @@ public class DeviceControlActivity extends Activity {
 
         ImageButton rotateLeft = (ImageButton) findViewById(R.id.ImageButton);
         ImageButton rotateRight = (ImageButton) findViewById(R.id.ImageButton3);
-        ImageButton goLeft = (ImageButton) findViewById(R.id.ImageButton6);
-        ImageButton goRight = (ImageButton) findViewById(R.id.ImageButton5);
-        ImageButton goForward = (ImageButton) findViewById(R.id.ImageButton2);
-        ImageButton goBackward = (ImageButton) findViewById(R.id.ImageButton4);
+
+        AnalogStickView stickView = (AnalogStickView) findViewById(R.id.AnalogStick);
 
         ImageButton sound1 = (ImageButton) findViewById(R.id.Astro1);
         ImageButton sound2 = (ImageButton) findViewById(R.id.Astro2);
@@ -220,6 +218,14 @@ public class DeviceControlActivity extends Activity {
 
         directionMessage= (TextView) findViewById(R.id.textView);
 
+
+        // set analogstick events
+        stickView.setOnMoveListener(new AnalogStickView.OnMoveListener() {
+            @Override
+            public void onMovement(int motorL, int motorR) {
+                directionMessage.setText("L:\t" + Integer.toString(motorL) + ", R:\t" + Integer.toString(motorR) );
+            }
+        });
 
         rotateRight.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -249,62 +255,6 @@ public class DeviceControlActivity extends Activity {
             }
         });
 
-        goRight.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("Turning Right");
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x03);
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    directionMessage.setText("Done!");;
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
-                }
-                return true;
-            }
-        });
-
-        goLeft.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("Turning Left");
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x04);
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    directionMessage.setText("Done!");;
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
-                }
-                return true;
-            }
-        });
-
-        goForward.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("Going Forward");
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x01);
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    directionMessage.setText("Done!");;
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
-                }
-                return true;
-            }
-        });
-
-
-        goBackward.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    directionMessage.setText("Going Backward");
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x02);
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    directionMessage.setText("Done!");;
-                    mBluetoothLeService.writeCustomCharacteristic(2, 0x00);
-                }
-                return true;
-            }
-        });
 
         sound1.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -475,7 +425,7 @@ public class DeviceControlActivity extends Activity {
                     colorToSet = (int)colorEvaluator.evaluate((float)((batteryPercentage-50.0)/50.0), Color.rgb(255, 214, 0),Color.rgb(104,159,56));
                 } else {
                     // interpolate between yellow and red
-                    colorToSet = (int)colorEvaluator.evaluate((float)((batteryPercentage-50.0)/50.0), Color.rgb(183,28,28),Color.rgb(255, 214, 0));
+                    colorToSet = (int)colorEvaluator.evaluate((float)((batteryPercentage)/50.0), Color.rgb(183,28,28),Color.rgb(255, 214, 0));
 
                 }
                 // do some sort of interpolation between green and red because values

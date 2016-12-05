@@ -17,8 +17,9 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_rot_right"
         android:background="@android:color/holo_orange_dark"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/ImageButton3" />
+        android:layout_above="@+id/hsv"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginBottom="33dp" />
 
     <ImageButton
         android:layout_width="75dp"
@@ -27,8 +28,8 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_rot_left"
         android:background="@android:color/holo_orange_dark"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/ImageButton"
+        android:layout_toStartOf="@+id/ImageButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,16 +37,16 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Direction"
         android:id="@+id/textView"
-        android:layout_above="@+id/batImage"
-        android:layout_alignEnd="@+id/batText" />
+        android:layout_below="@+id/device_address"
+        android:layout_alignEnd="@+id/device_address" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Device"
         android:id="@+id/device_address"
-        android:layout_alignBottom="@+id/AnalogStick"
-        android:layout_alignEnd="@+id/AnalogStick" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 
     <ImageView
@@ -54,7 +55,7 @@
         android:id="@+id/batImage"
         android:src="@drawable/ic_battery"
         android:background="@color/switch_thumb_disabled_material_dark"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/batText"
         android:layout_toStartOf="@+id/batText" />
 
     <TextView
@@ -66,18 +67,19 @@
         android:background="@color/switch_thumb_disabled_material_dark"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:layout_alignBottom="@+id/ImageButton3"
-        android:layout_alignEnd="@+id/AnalogStick" />
+        android:layout_below="@+id/textView"
+        android:layout_toEndOf="@+id/ImageButton3" />
 
     <HorizontalScrollView
         android:id="@+id/hsv"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:fillViewport="false"
         android:measureAllChildren="false"
         android:scrollbars="none"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/AnalogStick"
+        android:layout_marginStart="39dp">
 
         <LinearLayout
             android:id="@+id/innerLay"
@@ -219,10 +221,12 @@
 
     <ece.ece477.grp4.bb8_ble_remote.AnalogStickView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/AnalogStick"
-        android:layout_above="@+id/ImageButton3"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 
 
 </RelativeLayout>
